@@ -27,6 +27,6 @@ def home(request):
     dict_cotacoes.update(lc.cria_lista_todos_pares_nomes())
     # print(dict_cotacoes)
 
-    return render(request, 'charts/index.html', context = dict_cotacoes)
+    return render(request, 'charts/pages/home.html', context = dict_cotacoes)
 
     
