@@ -7,7 +7,8 @@
   A API awsomeapi se mostrou excelente para esse a experimento. <br>
     https://docs.awesomeapi.com.br/api-de-moedas<br>
 
-  Exibição do histórico de cotações no formato gráfico, além da exibição numérica.<br>
+  Exibição do histórico de cotações no formato gráfico, com Chart JS<br>
+  e também exibição numérica das últimas cotações.<br>
   Deploy da aplicação em nuvem programado.<br><br>
   </p>
   <div align="center">

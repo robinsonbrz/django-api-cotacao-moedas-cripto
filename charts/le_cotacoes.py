@@ -4,8 +4,8 @@ from datetime import datetime
 import requests
 
 
-def cria_lista_de_cotacoes():
-    objeto_cotacoes = requests.get('https://economia.awesomeapi.com.br/json/daily/USD-BRL/60')
+def cria_lista_de_cotacoes_por_qtd_dias(par_moedas, qtd_dias):
+    objeto_cotacoes = requests.get(f'https://economia.awesomeapi.com.br/json/daily/{par_moedas}/{qtd_dias}')
     # retorna todas as modedas disponíveis para análise
     # print(objeto_cotacoes.status_code)
     objeto_cotacoes = objeto_cotacoes.json()
@@ -16,7 +16,7 @@ def cria_lista_de_cotacoes():
     dict_cotacoes = {}
     lista_cotacoes = []
     lista_datas = []
-    
+
     for i , cotacao in enumerate(objeto_cotacoes):
         time_data = datetime.fromtimestamp(int(objeto_cotacoes[i]['timestamp']))
         lista_datas.append(time_data.strftime("%d/%m/%y"))       
