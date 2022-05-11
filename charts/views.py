@@ -9,7 +9,7 @@ import charts.payoff_utils as pu
 def home(request):
     # valores padrao caso não receba parametros GET
     par_moedas = 'BTC-BRL'
-    dias = '90'
+    dias = '15'
     # par_moedas = 
     if 'par_moedas_form' in request.GET:
         par_moedas = request.GET['par_moedas_form']
