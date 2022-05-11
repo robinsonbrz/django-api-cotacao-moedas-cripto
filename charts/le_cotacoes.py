@@ -16,6 +16,7 @@ def cria_lista_de_cotacoes_por_qtd_dias(par_moedas, qtd_dias):
     dict_cotacoes = {}
     lista_cotacoes = []
     lista_datas = []
+    nome_moeda = objeto_cotacoes[0]['name'].split('/')[0]
 
     for i , cotacao in enumerate(objeto_cotacoes):
         time_data = datetime.fromtimestamp(int(objeto_cotacoes[i]['timestamp']))
@@ -24,7 +25,11 @@ def cria_lista_de_cotacoes_por_qtd_dias(par_moedas, qtd_dias):
     for i , cotacao in enumerate(objeto_cotacoes):
         lista_cotacoes.append(objeto_cotacoes[i]['bid'])
 
-    dict_cotacoes = dict({"lista_cotacoes": list(reversed(lista_cotacoes)), "lista_datas": list(reversed(lista_datas))})
+    dict_cotacoes = dict({
+            "lista_cotacoes": list(reversed(lista_cotacoes)), 
+            "lista_datas": list(reversed(lista_datas)),
+            "nome_moeda": nome_moeda
+        })
 
     return dict_cotacoes
 
@@ -36,15 +41,16 @@ def cria_lista_todos_pares_nomes():
     dict_cotacoes_moedas = objeto_cotacoes.json()
 
     lista_moedas = []
-    lista_nomes = []
+    dict_pares_moedas = {}
+    lista_pares = []
+
     # itera mostrando todas as moedas possíveis
     for moeda in dict_cotacoes_moedas:
         lista_moedas.append(moeda)
     for moeda in lista_moedas:
-        lista_nomes.append(dict_cotacoes_moedas[moeda]['name'].split('/')[0])
+        lista_pares.append((moeda,dict_cotacoes_moedas[moeda]['name'].split('/')[0]))
 
-    dict_cotacoes = {}
+    dict_pares_moedas['pares'] = lista_pares
+    print(dict_pares_moedas['pares'][4])
 
-    dict_cotacoes = dict({"lista_moedas": lista_moedas, "lista_nomes": lista_nomes})
-
-    return dict_cotacoes
+    return dict_pares_moedas

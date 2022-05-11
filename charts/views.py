@@ -8,8 +8,10 @@ import charts.payoff_utils as pu
 
 def home(request):
     # valores padrao caso não receba parametros GET
+    # nome_moeda = 'Bitcoin'
     par_moedas = 'BTC-BRL'
-    dias = '15'
+    dias = '60'
+
     # par_moedas = 
     if 'par_moedas_form' in request.GET:
         par_moedas = request.GET['par_moedas_form']
@@ -23,6 +25,8 @@ def home(request):
     # lista_moedas e lista_nomes 
     
     dict_cotacoes.update(lc.cria_lista_todos_pares_nomes())
+    # print(dict_cotacoes)
+
     return render(request, 'charts/index.html', context = dict_cotacoes)
 
     

@@ -13,8 +13,8 @@
 
 <body>
    <div class="container text-center pt-5">
-      <h1>Cotação Histórica de {{par_moedas|safe}}</h1>
-         <p>Cotação {{par_moedas|safe}} período de  {{qtd_dias|safe}} dias.</p>
+      <h1>Cotação {{nome_moeda}}</h1>
+         <p>Cotação {{par_moedas}} - {{nome_moeda}} período de  {{qtd_dias}} dias.</p>
    </div>
    
 
@@ -26,7 +26,7 @@
          <div class="col-lg-6 mb-4 ">
             <div class="card">
                <div class="card-body">
-                  <h5 class="card-title">{{par_moedas|safe}} /  {{qtd_dias|safe}} dias</h5>
+                  <h5 class="card-title">{{nome_moeda}} - {{par_moedas}} /  {{qtd_dias}} dias</h5>
                   
                   <canvas id="myChart" ></canvas>
                   <br>
@@ -38,7 +38,7 @@
          <div class="col-lg-6 mb-4">
             <div class="card">
                <div class="card-body">
-                  <h5 class="card-title">{{par_moedas|safe}} /  {{qtd_dias|safe}} dias</h5>
+                  <h5 class="card-title">{{nome_moeda}} - {{par_moedas}} /  {{qtd_dias}} dias</h5>
                   <div id="chart" >
                   </div>
                   Exibição em Apex Chart
@@ -57,9 +57,10 @@
                   <div class="form-row">
                      <div class="form-group col-md-8">
                         <label for="par_moedas_form">Moeda</label>
+
                         <select name="par_moedas_form" id="par_moedas_form" class="form-control">
-                           {% for moeda in lista_moedas %}
-                              <option value={{moeda}}>{{moeda}}</option>
+                           {% for par in pares %}
+                              <option value={{par.0}}>{{par.1}}</option>
                            {% endfor %}
                         </select>
                      </div>
@@ -69,14 +70,14 @@
                                  <option value="5">5</option>
                                  <option value="10">10</option>
                                  <option value="30">30</option>
-                                 <option value="60">60</option>
+                                 <option value="60" selected>60</option>
                                  <option value="90">90</option>
                                  <option value="120">120</option>
                                  <option value="180">180</option>
                         </select>
                      </div>
                   </div>
-                  <button type="submit" class="btn btn-primary">Selecionado</button>
+                  <button type="submit" class="btn btn-primary">Selecionar</button>
                   </form>
                </div>
             </div>
@@ -88,9 +89,9 @@
       // ChartJs 
       var lista_datas = {{ lista_datas | safe }};
       var lista_cotacoes = {{ lista_cotacoes | safe }};
-      // var lista_moedas = {{ lista_moedas | safe }};
+      // var pares = {{ pares | safe }};
 
-      // console.log(lista_moedas);
+      // console.log(pares);
 
       const ctx = document.getElementById('myChart').getContext('2d');
       const myChart = new Chart(ctx, {
