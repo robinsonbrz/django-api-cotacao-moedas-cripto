@@ -32,7 +32,16 @@
         </td>
       </tr>
     </table>
+
+            
   </div>
+    <div align="center">
+    <br>
+        <a href="https://www.linkedin.com/in/robinsonbrz/">
+            <img src="ApiCotacoes.jpg" width="600" height="auto"></a>
+    </div>
+
+
   <br>
   <h3 align="left">Linguagens e ferramentas utilizadas:</h3>
   <br>
@@ -142,8 +151,7 @@
     - [x] manipulação de dicionários Python,<br>
     - [x] consulta de pares de moedas disponíveis,<br>
     - [x] consulta de cotações de moedas, e cotação de histórico de valores de moedas<br>
-    - [x] Além de moedas também é possível consultar Bitcoins, Ethereum e DogeCoin
-  </div><br><br>
+    - [x] Além de moedas também é possível consultar Bitcoins, Ethereum e DogeCoin<br>
     - [ ] Deploy Oracle Cloud Infrastructure
   </div>
   <h1 align="center"> Informações e contato </h1> 
