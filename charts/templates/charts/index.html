@@ -16,45 +16,67 @@
       <h1>Cotação Histórica de {{par_moedas|safe}}</h1>
          <p>Cotação {{par_moedas|safe}} período de  {{qtd_dias|safe}} dias.</p>
    </div>
-
-
-      <div class="container pt-5">
+   
+   <div class="container pt-5">
       <div class="row" >
          <div class="col-lg-6 mb-4">
             <div class="card">
                <div class="card-body">
-               <h5 class="card-title">Exibição em Chart Js</h5>
-
+                  <h5 class="card-title">{{par_moedas|safe}} /  {{qtd_dias|safe}} dias.</h5>
+                  
                   <canvas id="myChart" ></canvas>
-               
+                  <br>
+                  Exibição em Chart Js
                </div>
             </div>
          </div>
-
-
-
+         
          <div class="col-lg-6 mb-4">
             <div class="card">
                <div class="card-body">
-                  <h5 class="card-title">Exibição em Apex Chart</h5>
-                  
-                  
+                  <h5 class="card-title">{{par_moedas|safe}} /  {{qtd_dias|safe}} dias.</h5>
                   <div id="chart" >
+                  </div>
+                  Exibição em Apex Chart
                </div>
             </div>
          </div>
-
-
       </div>
-
-   </div>
-
-
-
-   
-
-   
-   
+      
+      <div class="col-12">
+         <div class="card">
+            <div class="card-body">
+               <h5 class="card-title">Selecione moeda e período </h5>
+               <div class="container">
+                  <form action="{% url 'cotacoes:home'  %}">
+                  <label for="cars">Moeda Cotação:</label>
+                  <select name="par_moedas_form" id="par_moedas_form">
+                     <option value="USD-BRL">USD-BRL</option>
+                     <option value="BTC-BRL">BTC-BRL</option>
+                     <option value="ETH-BRL">ETH-BRL</option>
+                     <option value="EUR-BRL">EUR-BRL</option>
+                  </select>
+                  <label for="cars">Dias Histórico:</label>
+                  <select name="dias_form" id="dias_form">
+                     <option value="5">5</option>
+                     <option value="10">10</option>
+                     <option value="30">30</option>
+                     <option value="60">60</option>
+                     <option value="90">90</option>
+                     <option value="120">120</option>
+                     <option value="180">180</option>
+                  </select>
+                  <input type="submit" value="Submit">
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+      
+      
+      
+      
+      
    <script>
       // ChartJs 
       var lista_datas = {{ lista_datas | safe }};
