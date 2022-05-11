@@ -17,10 +17,12 @@ def home(request):
         dias = request.GET['dias_form']
 
     dict_cotacoes = lc.cria_lista_de_cotacoes_por_qtd_dias(par_moedas, dias)
-
     dict_cotacoes['par_moedas'] = par_moedas
     dict_cotacoes['qtd_dias'] = dias
 
+    # lista_moedas e lista_nomes 
+    
+    dict_cotacoes.update(lc.cria_lista_todos_pares_nomes())
     return render(request, 'charts/index.html', context = dict_cotacoes)
 
     

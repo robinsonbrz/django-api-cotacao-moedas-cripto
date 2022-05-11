@@ -58,10 +58,9 @@
                      <div class="form-group col-md-8">
                         <label for="par_moedas_form">Moeda</label>
                         <select name="par_moedas_form" id="par_moedas_form" class="form-control">
-                           <option value="USD-BRL">USD-BRL</option>
-                           <option value="BTC-BRL">BTC-BRL</option>
-                           <option value="ETH-BRL">ETH-BRL</option>
-                           <option value="EUR-BRL">EUR-BRL</option>
+                           {% for moeda in lista_moedas %}
+                              <option value={{moeda}}>{{moeda}}</option>
+                           {% endfor %}
                         </select>
                      </div>
                      <div class="form-group col-md-4">
@@ -89,9 +88,9 @@
       // ChartJs 
       var lista_datas = {{ lista_datas | safe }};
       var lista_cotacoes = {{ lista_cotacoes | safe }};
+      // var lista_moedas = {{ lista_moedas | safe }};
 
-
-      // console.log(lista_datas);
+      // console.log(lista_moedas);
 
       const ctx = document.getElementById('myChart').getContext('2d');
       const myChart = new Chart(ctx, {

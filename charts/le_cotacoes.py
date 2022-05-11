@@ -27,3 +27,24 @@ def cria_lista_de_cotacoes_por_qtd_dias(par_moedas, qtd_dias):
     dict_cotacoes = dict({"lista_cotacoes": list(reversed(lista_cotacoes)), "lista_datas": list(reversed(lista_datas))})
 
     return dict_cotacoes
+
+
+def cria_lista_todos_pares_nomes():
+    objeto_cotacoes = requests.get('https://economia.awesomeapi.com.br/json/all')
+    # retorna todas as modedas disponíveis para análise
+    # print(objeto_cotacoes.status_code)
+    dict_cotacoes_moedas = objeto_cotacoes.json()
+
+    lista_moedas = []
+    lista_nomes = []
+    # itera mostrando todas as moedas possíveis
+    for moeda in dict_cotacoes_moedas:
+        lista_moedas.append(moeda)
+    for moeda in lista_moedas:
+        lista_nomes.append(dict_cotacoes_moedas[moeda]['name'].split('/')[0])
+
+    dict_cotacoes = {}
+
+    dict_cotacoes = dict({"lista_moedas": lista_moedas, "lista_nomes": lista_nomes})
+
+    return dict_cotacoes
