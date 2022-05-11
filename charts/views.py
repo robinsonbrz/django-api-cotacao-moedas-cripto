@@ -8,9 +8,9 @@ import charts.payoff_utils as pu
 
 def home(request):
     dict_cotacoes = lc.cria_lista_de_cotacoes()
-    print(dict_cotacoes)
+    # print(dict_cotacoes)
     
-    return render(request, 'charts/index2.html', context=dict_cotacoes)
+    return render(request, 'charts/index.html', context=dict_cotacoes)
     
     
     # from charts.models import Ativo
