@@ -54,3 +54,26 @@ def cria_lista_todos_pares_nomes():
     print(dict_pares_moedas['pares'][4])
 
     return dict_pares_moedas
+
+
+
+def cotacao_atual(par_moedas):
+    objeto_cotacao = requests.get(f'https://economia.awesomeapi.com.br/last/{par_moedas}')
+    # retorna todas as modedas disponíveis para análise
+    # print(objeto_cotacoes.status_code)
+    objeto_cotacao = objeto_cotacao.json()
+    '''
+    {"USDBRLT":
+    {"code":"USD","codein":"BRLT","name":"Dólar Americano/Real Brasileiro Turismo",
+    "high":"5.185","low":"5.12","varBid":"0.01","pctChange":"0.19",
+    "bid":"5.01","ask":"5.32","timestamp":"1652296980",
+    "create_date":"2022-05-11 16:23:00"}}
+    '''
+    # print(objeto_cotacao)
+    dict_cotacao = {}
+    for par in objeto_cotacao:
+        dict_cotacao['par_atual'] = objeto_cotacao[par]
+    # print(dict_cotacao)
+    dict_cotacao['par_atual']['name'] = dict_cotacao['par_atual']['name'].split('/')[0]
+    # print(dict_cotacao)
+    return dict_cotacao

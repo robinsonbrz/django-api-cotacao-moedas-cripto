@@ -23,9 +23,10 @@ def home(request):
     dict_cotacoes['qtd_dias'] = dias
 
     # lista_moedas e lista_nomes 
-    
+        
     dict_cotacoes.update(lc.cria_lista_todos_pares_nomes())
-    # print(dict_cotacoes)
+    dict_cotacoes.update(lc.cotacao_atual(par_moedas))
+    print(dict_cotacoes)
 
     return render(request, 'charts/pages/home.html', context = dict_cotacoes)
 
