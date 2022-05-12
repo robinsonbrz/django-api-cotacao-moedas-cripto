@@ -6,46 +6,37 @@
 <div class="jumbotron jumbotron-fluid">
    <div class="container text-center">
       <h1 class="display-4">Cotação {{nome_moeda}}</h1>
-      <p class="lead">Cotação {{par_moedas}} - {{nome_moeda}} últimos {{qtd_dias}} dias.</p>
+      <p class="lead mb-5">Cotação {{par_moedas}} - {{nome_moeda}} últimos {{qtd_dias}} dias.</p>
+      <hr class="mb-5">
+      <!--Search box form moedas e período  Início -->
+      <form action="{% url 'cotacoes:home'  %}">
+         <div class="form-row">
+            <div class="form-group col-md-4">
+               <select name="par_moedas_form" id="par_moedas_form" class="form-control">
+                  {% for par in pares %}
+                     <option value={{par.0}}>{{par.1}}</option>
+                  {% endfor %}
+               </select>
+            </div>
+            <div class="form-group col-md-4">
+               <select name="dias_form" id="dias_form" class="form-control">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="30">30</option>
+                        <option value="60" selected>60</option>
+                        <option value="90">90</option>
+                        <option value="120">120</option>
+                        <option value="180">180</option>
+               </select>
+            </div>
+            <div class=" col-md-4">
+               <button type="submit" class="btn btn-primary">Selecionar</button>
+            </div>
+         </div>
+      </form>
+      <!--Search box form moedas e período  Fim-->
    </div>
 </div>
-
-
-
-               <div class="container">
-                  <form action="{% url 'cotacoes:home'  %}">
-                  <div class="form-row">
-                     <div class="form-group col-md-4">
-
-
-                        <select name="par_moedas_form" id="par_moedas_form" class="form-control">
-                           {% for par in pares %}
-                              <option value={{par.0}}>{{par.1}}</option>
-                           {% endfor %}
-                        </select>
-                     </div>
-                     <div class="form-group col-md-4">
-
-                        <select name="dias_form" id="dias_form" class="form-control">
-                                 <option value="5">5</option>
-                                 <option value="10">10</option>
-                                 <option value="30">30</option>
-                                 <option value="60" selected>60</option>
-                                 <option value="90">90</option>
-                                 <option value="120">120</option>
-                                 <option value="180">180</option>
-                        </select>
-                     </div>
-                     <div class=" col-md-4">
-                        <button type="submit" class="btn btn-primary">Selecionar</button>
-                     </div>
-                  </div>
-                  </form>
-               </div>
-
-
-
-
 
 
    <!--  class oculta d-none
@@ -74,31 +65,64 @@
          </div>
 
          <div class="col-md-3">
+            <!--Card cotação atual  Início -->
             <div class="card">
                <div class="card-body">
                   <h5 class="card-title">Cotação atual</h5>
                   <p class="card-text"><b>{{par_moedas}}<br>{{nome_moeda}}</b></p>
                </div>
                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><b>Compra:</b> {{par_atual.bid}}<br><b>Venda:</b> {{par_atual.ask}}</li>
+                  <li class="list-group-item"><b>Compra:</b> R$ {{par_atual.bid}}<br><b>Venda :</b> R$ {{par_atual.ask}}</li>
                   <li class="list-group-item"><b>Variação:</b> {{par_atual.pctChange}}%</li>
-                  <li class="list-group-item"><b>High:</b> {{par_atual.high}}<br><b>Low:</b> {{par_atual.low}}</li>
+                  <li class="list-group-item"><b>High:</b> R$ {{par_atual.high}}<br><b>Low :</b> R$ {{par_atual.low}}</li>
                   <li class="list-group-item"> {{par_atual.create_date}}</li>
                </ul>
             </div>
+            <!--Card cotação atual  Fim -->            
          </div>
 
       </div>
    </div>  
+
+<!--Table cotacoes Inicio --> 
+
+<div class="container">
+
+
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+           {% for par_atual in lista_todos_cot_atual %}
+            <tr>
+               <td>{{par_atual.code}}</td>
+               <td>{{par_atual.name}}</td>
+               <td>R$ {{par_atual.bid}}</td>
+               <td>{{par_atual.create_date}}</td>
+            </tr>
+            {% endfor %}
+   
+  </tbody>
+</table>
+<!--Table cotacoes Fim --> 
+
 
       
    <script>
       // ChartJs 
       var lista_datas = {{ lista_datas | safe }};
       var lista_cotacoes = {{ lista_cotacoes | safe }};
-      // var pares = {{ pares | safe }};
+      //var lista_todos_cot_atual = {{ lista_todos_cot_atual | safe }};
 
-      // console.log(pares);
+      //console.log(lista_todos_cot_atual);
 
       const ctx = document.getElementById('myChart').getContext('2d');
       const myChart = new Chart(ctx, {

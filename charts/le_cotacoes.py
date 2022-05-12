@@ -50,7 +50,6 @@ def cria_lista_todos_pares_nomes():
     return dict_pares_moedas
 
 
-
 def cotacao_atual(par_moedas):
     objeto_cotacao = requests.get(f'https://economia.awesomeapi.com.br/last/{par_moedas}')
     # retorna todas as modedas disponíveis para análise
@@ -68,3 +67,28 @@ def cotacao_atual(par_moedas):
         dict_cotacao['par_atual'] = objeto_cotacao[par]
     dict_cotacao['par_atual']['name'] = dict_cotacao['par_atual']['name'].split('/')[0]
     return dict_cotacao
+
+
+def cotacao_atual_todas():
+    dict_pares_moedas = cria_lista_todos_pares_nomes()
+    string_pares = ''
+    for moeda in dict_pares_moedas['pares']:
+        string_pares += moeda[0] + ','
+    string_pares = string_pares[:-1]   # retira a última vírgula
+
+    # consulta a api
+    # https://economia.awesomeapi.com.br/last/USD,USDT,CAD,EUR,GBP,ARS,BTC,LTC,JPY,CHF,AUD,CNY,ILS,ETH,XRP,DOGE
+    objetos_ultima_cotacao = requests.get(f'https://economia.awesomeapi.com.br/last/{string_pares}')
+    # recebeu todas as modedas disponíveis para análise
+    objetos_ultima_cotacao = objetos_ultima_cotacao.json()
+
+    lista_todos_cot_atual = []
+    for a in objetos_ultima_cotacao:
+        del objetos_ultima_cotacao[a]['codein']
+        del objetos_ultima_cotacao[a]['timestamp']
+        objetos_ultima_cotacao[a]['name'] = objetos_ultima_cotacao[a]['name'].split('/')[0]
+        objetos_ultima_cotacao[a]['create_date'] = objetos_ultima_cotacao[a]['create_date'][:-3]
+        lista_todos_cot_atual.append(objetos_ultima_cotacao[a])
+
+    
+    return lista_todos_cot_atual
