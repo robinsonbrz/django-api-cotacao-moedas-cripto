@@ -27,7 +27,7 @@ def home(request):
     
     # concatena lista de todas as cotações
     dict_cotacoes['lista_todos_cot_atual'] = lc.cotacao_atual_todas()
-    print(dict_cotacoes)
+    # print(dict_cotacoes)
 
     return render(request, 'charts/pages/home.html', context = dict_cotacoes)
 

@@ -86,32 +86,36 @@
 
 <!--Table cotacoes Inicio --> 
 
-<div class="container">
+<div class="container m-5 text-center">
+   <h3>Tabela: cotação mais atual disponível na API</h3>
+   <table class="table table-striped table-bordered">
+      <thead
+         <tr>
+            <th scope="col">Moeda</th>
+            <th scope="col">Descrição Moeda</th>
+            <th scope="col">Comprador</th>
+            <th scope="col">Vendedor</th>
+            <th scope="col">Variação %</th>
+            <th scope="col">Data/Hora Cotação</th>
+         </tr>
+      </thead>
+      <tbody>
+            {% for par_atual in lista_todos_cot_atual %}
+            <tr>
+               <td>{{par_atual.code}}</td>
+               <td>{{par_atual.name}}</td>
+               <td>R$ {{par_atual.bid|floatformat:2 }}</td>
+               <td>R$ {{par_atual.ask|floatformat:2 }}</td>
+               <td>{{par_atual.pctChange|floatformat:2 }}%</td>
+               <td>{{par_atual.create_date}}</td>
+            </tr>
+            {% endfor %}
+         </tbody>
+   </table>
 
 
 </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-           {% for par_atual in lista_todos_cot_atual %}
-            <tr>
-               <td>{{par_atual.code}}</td>
-               <td>{{par_atual.name}}</td>
-               <td>R$ {{par_atual.bid}}</td>
-               <td>{{par_atual.create_date}}</td>
-            </tr>
-            {% endfor %}
-   
-  </tbody>
-</table>
 <!--Table cotacoes Fim --> 
 
 

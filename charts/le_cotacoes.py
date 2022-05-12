@@ -89,6 +89,4 @@ def cotacao_atual_todas():
         objetos_ultima_cotacao[a]['name'] = objetos_ultima_cotacao[a]['name'].split('/')[0]
         objetos_ultima_cotacao[a]['create_date'] = objetos_ultima_cotacao[a]['create_date'][:-3]
         lista_todos_cot_atual.append(objetos_ultima_cotacao[a])
-
-    
     return lista_todos_cot_atual
