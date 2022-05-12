@@ -9,7 +9,7 @@ import charts.payoff_utils as pu
 def home(request):
     # valores padrao caso não receba parametros GET
     # nome_moeda = 'Bitcoin'
-    par_moedas = 'BTC-BRL'
+    par_moedas = 'USD-BRL'
     dias = '60'
 
     # par_moedas = 
@@ -22,11 +22,9 @@ def home(request):
     dict_cotacoes['par_moedas'] = par_moedas
     dict_cotacoes['qtd_dias'] = dias
 
-    # lista_moedas e lista_nomes 
-        
     dict_cotacoes.update(lc.cria_lista_todos_pares_nomes())
     dict_cotacoes.update(lc.cotacao_atual(par_moedas))
-    print(dict_cotacoes)
+    # print(dict_cotacoes)  # for debug purposes
 
     return render(request, 'charts/pages/home.html', context = dict_cotacoes)
 

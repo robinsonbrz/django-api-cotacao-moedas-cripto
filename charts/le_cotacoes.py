@@ -7,12 +7,10 @@ import requests
 def cria_lista_de_cotacoes_por_qtd_dias(par_moedas, qtd_dias):
     objeto_cotacoes = requests.get(f'https://economia.awesomeapi.com.br/json/daily/{par_moedas}/{qtd_dias}')
     # retorna todas as modedas disponíveis para análise
-    # print(objeto_cotacoes.status_code)
     objeto_cotacoes = objeto_cotacoes.json()
 
     # Exemplo de retorno
     # {'high': '5.1619', 'low': '5.0784', 'varBid': '0.0845', 'pctChange': '1.66', 'bid': '5.1611', 'ask': '5.1626', 'timestamp': '1652129998'}
-
     dict_cotacoes = {}
     lista_cotacoes = []
     lista_datas = []
@@ -36,8 +34,7 @@ def cria_lista_de_cotacoes_por_qtd_dias(par_moedas, qtd_dias):
 
 def cria_lista_todos_pares_nomes():
     objeto_cotacoes = requests.get('https://economia.awesomeapi.com.br/json/all')
-    # retorna todas as modedas disponíveis para análise
-    # print(objeto_cotacoes.status_code)
+    # retorna todas as modedas disponíveis
     dict_cotacoes_moedas = objeto_cotacoes.json()
 
     lista_moedas = []
@@ -49,10 +46,7 @@ def cria_lista_todos_pares_nomes():
         lista_moedas.append(moeda)
     for moeda in lista_moedas:
         lista_pares.append((moeda,dict_cotacoes_moedas[moeda]['name'].split('/')[0]))
-
     dict_pares_moedas['pares'] = lista_pares
-    print(dict_pares_moedas['pares'][4])
-
     return dict_pares_moedas
 
 
@@ -69,11 +63,8 @@ def cotacao_atual(par_moedas):
     "bid":"5.01","ask":"5.32","timestamp":"1652296980",
     "create_date":"2022-05-11 16:23:00"}}
     '''
-    # print(objeto_cotacao)
     dict_cotacao = {}
     for par in objeto_cotacao:
         dict_cotacao['par_atual'] = objeto_cotacao[par]
-    # print(dict_cotacao)
     dict_cotacao['par_atual']['name'] = dict_cotacao['par_atual']['name'].split('/')[0]
-    # print(dict_cotacao)
     return dict_cotacao
