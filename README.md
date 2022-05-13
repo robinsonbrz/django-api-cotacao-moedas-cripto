@@ -9,8 +9,13 @@
 
   Exibição do histórico de cotações no formato gráfico, com Chart JS<br>
   e também exibição numérica das últimas cotações.<br>
-  Deploy da aplicação em nuvem programado.<br><br>
+  Deploy da aplicação em nuvem.<br><br>
   </p>
+  <br>
+<p align="left">Demonstração disponível abaixo</p>
+<a href="https://www.enedino.com.br">
+<img src="https://raw.githubusercontent.com/robinsonbrz/robinsonbrz/main/static/img/live_demo.jpg" width="138" height="50"></a>
+<br>
   <div align="center">
     <table>
       </tr>
@@ -20,31 +25,41 @@
             </td>
         <td>
             <a  href="https://www.linkedin.com/in/robinsonbrz/">
-            <img src="https://raw.githubusercontent.com/robinsonbrz/robinsonbrz/main/static/img/linkedin.png" width="30" height="30">
+            <img src="https://raw.githubusercontent.com/robinsonbrz/robinsonbrz/main/static/img/linkedin.png" width="30" height="auto">
         </td>
         <td>
             <a  href="https://www.linkedin.com/in/robinsonbrz/">
-            <img  src="https://avatars.githubusercontent.com/u/18150643?s=96&amp;v=4" alt="@robinsonbrz" width="30" height="30">
+            <img  src="https://avatars.githubusercontent.com/u/18150643?s=96&amp;v=4" alt="@robinsonbrz" width="30" height="auto">
         </td>
         <td>
             <a href="mailto:robinsonbrz@gmail.com">
-            <img src="https://raw.githubusercontent.com/robinsonbrz/robinsonbrz/main/static/img/gmail.png" width="30" height="30" ></a>
+            <img src="https://raw.githubusercontent.com/robinsonbrz/robinsonbrz/main/static/img/gmail.png" width="30" height="auto" ></a>
         </td>
       </tr>
     </table>
-
-            
   </div>
-    <div align="center">
+    <div >
     <br>
-        <a href="https://www.linkedin.com/in/robinsonbrz/">
-            <img src="ApiCotacoes.jpg" width="600" height="auto"></a>
     <br>
+    <p>Exibição da cotação no formato Card Bootstrap, do endpoint cotação atual.</p>
         <a href="https://www.linkedin.com/in/robinsonbrz/">
-            <img src="TabelaCotacoes.jpg" width="600" height="auto"></a>
+            <img src="cotacoesAtual.png" width="20%" height="auto"></a>
+            <br>
+            <br>
+    <p>Formulario com opções de moedas para consulta, e período de exibição no gráfico.</p>            
+        <a href="https://www.linkedin.com/in/robinsonbrz/">
+            <img src="CotacoesForm.png" width="600" height="auto"></a>
+    <br>
+    <br>
+    <p>Exibição no formato tabela.</p>
+        <a href="https://www.linkedin.com/in/robinsonbrz/">
+            <img src="cotacoesTabelaAtualizada.png" width="600" height="auto"></a>
+    <br>
+    <br>
+    <p>Exibição gráfica disponívell em duas bibliotecas: ChartJs e ApexChart.</p>
+        <a href="https://www.linkedin.com/in/robinsonbrz/">
+            <img src="cotacoesChartJs.png" width="600" height="auto"></a>
     </div>
-
-
   <br>
   <h3 align="left">Linguagens e ferramentas utilizadas:</h3>
   <br>
@@ -144,7 +159,7 @@
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <br><br><br><br><br><br><br><br><br><br><br>
   <h3 align="left"> 
-  🚧  Projeto 🚀 Em construção...  🚧
+  🚧  Projeto 🚀 Concluído  🚧
   </h3>
   <br>
   <h3 align="left"> Features </h3>
@@ -155,7 +170,7 @@
     - [x] consulta de pares de moedas disponíveis,<br>
     - [x] consulta de cotações de moedas, e cotação de histórico de valores de moedas<br>
     - [x] Além de moedas também é possível consultar Bitcoins, Ethereum e DogeCoin<br>
-    - [ ] Deploy Oracle Cloud Infrastructure
+    - [x] Deploy Oracle Cloud Infrastructure
   </div>
   <h1 align="center"> Informações e contato </h1> 
   <div align="center">
