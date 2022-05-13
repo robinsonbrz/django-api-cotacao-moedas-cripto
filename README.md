@@ -39,6 +39,9 @@
     <br>
         <a href="https://www.linkedin.com/in/robinsonbrz/">
             <img src="ApiCotacoes.jpg" width="600" height="auto"></a>
+    <br>
+        <a href="https://www.linkedin.com/in/robinsonbrz/">
+            <img src="TabelaCotacoes.jpg" width="600" height="auto"></a>
     </div>
 
 
